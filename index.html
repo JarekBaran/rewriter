@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rewriter</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/rewriter.css">
+  </head>
+  <body>
+    <form>
+      <input id='step2' type='checkbox'>
+      <input id='step3' type='checkbox'>
+      <div id="part1">
+        <div class="fixed-top">
+          <label for='step2'>
+            <div class="btn btn-danger btn-lg" onClick="set404List(input404.value);">Paste the wrong address list (HTTP404 status code) and continue >>> </div>
+          </label>
+        </div>
+        <textarea id="input404" class="alert alert-danger content"></textarea>
+      </div>
+      <div id="part2">
+        <div class="fixed-top">
+          <label for='step3'>
+            <div class="btn btn-success btn-lg" onClick="set200List(input200.value);">Paste the current list of correct addresses (HTTP200 status code) and continue >>> </div>
+          </label>
+        </div>
+        <textarea id="input200" class="alert alert-success content"></textarea>
+      </div>
+      <div id="part3">
+      	<div class="fixed-top">
+        	<div class="btn btn-link btn-lg" onClick="generate(Schema.scoring);">
+        	  <input id="limit" type="number" class="form-control" min="1" max="100" step="0.1" value="1.0" autofocus>
+        	</div>
+        	<div class="btn btn-primary btn-lg" onClick="generate(Schema.rewriteRule);">Rewrite</div>
+        	<div class="btn btn-primary btn-lg" onClick="generate(Schema.redirect301);">Redirect</div>
+        	<div class="btn btn-primary btn-lg" onClick="generate(Schema.rewriteCond);">RewriteCond</div>
+        	<div class="btn btn-outline-primary btn-lg" onClick="generate(Schema.phpRequestUri);">PHP</div>
+        	<div class="btn btn-outline-warning btn-lg" onClick="generate(Schema.joomlaMod);">JoomlaMod</div>
+        	<div class="btn btn-outline-success btn-lg" onClick="generate(Schema.nginx);">Nginx</div>
+        	<div class="btn btn-outline-danger btn-lg" onClick="generate(Schema.iis);">IIS</div>
+        	<div id="time" class="text-center"></div>
+      	</div>
+        <div id="output" class="content"></div>
+      </div>
+    </form>
+    <script src="assets/js/FuzzySearch.min.js"></script>
+    <script src="app/rewriter.js"></script>
+  </body>
+</html>
