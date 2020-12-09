@@ -38,6 +38,7 @@ const set404List = function(list) {
 
 const set200List = function(list) {
   url200 = Array.from(new Set(list.toLowerCase().split(`\n`).filter(Boolean).map(exclude))).sort();
+  generate(Schema.scoring);
 }
 
 const limitScoring = function(matched) {
