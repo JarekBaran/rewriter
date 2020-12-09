@@ -23,7 +23,7 @@ const init = function() {
 const getPath = function(url=``) {
       let link = document.createElement(`a`);
       link.href = url;
-      return link.pathname;
+      return link.pathname.replace(`/rewriter/`, `/`);
     }
 
 const exclude = function(url) {
