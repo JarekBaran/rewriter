@@ -94,6 +94,6 @@ const generate = function(getSchema) {
 }
 
 document.querySelector(`form`).addEventListener('submit', function(e) {
-    generate(scoring);
+    generate(Schema.scoring);
     e.preventDefault();
 }, false);
